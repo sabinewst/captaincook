@@ -1,10 +1,22 @@
 .card {
   align-items: center;
-  background-color: bisque;
+  background-color: #FCE38A;
   display: flex;
   height: 150px;
   margin: 16px;
   width: 500px;
+}
+
+button {
+  background-color: transparent;
+  color: #F38181;
+  font-weight: bold;
+  border: 1px solid #F38181;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #ffe893;
+  }
 }
 
 img {
