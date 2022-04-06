@@ -1,0 +1,3 @@
+<app-navigation></app-navigation>
+<app-card *ngFor="let meal of meals" [meal]="meal" (answer)="deleteRecipe(meal.id)"></app-card>
+<button (click)="addRecipe()">+</button>

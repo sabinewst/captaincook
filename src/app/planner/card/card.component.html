@@ -1,0 +1,8 @@
+<div class="card">
+  <img src="{{ meal.imageUrl }}">
+  <div class="textWrapper">
+    <p class="title">{{ meal.name }}</p>
+    <p>{{ meal.portionSize }}</p>
+    <button (click)="onClick(meal)">x</button>
+  </div>
+</div>
