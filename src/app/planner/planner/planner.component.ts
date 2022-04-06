@@ -8,7 +8,7 @@ import { PlannedService } from 'src/app/shared/services/planned.service';
 })
 
 export class PlannerComponent implements OnInit {
-  meals: {
+  plannedMeals: {
     name: string;
     imageUrl: string;
     portionSize: string;
@@ -19,12 +19,12 @@ export class PlannerComponent implements OnInit {
   constructor(private plannedService: PlannedService) {}
 
   ngOnInit(): void {
-    this.meals = this.plannedService.meals
+    this.plannedMeals = this.plannedService.meals
   }
 
-  addRecipe(){
-    this.meals.push({
-      id: this.meals.length + 1,
+  addMeal(){
+    this.plannedMeals.push({
+      id: this.plannedMeals.length + 1,
       name: 'New',
       imageUrl: '../../../assets/images/placeholder.png',
       portionSize: '?',
@@ -32,8 +32,8 @@ export class PlannerComponent implements OnInit {
     })
   }
 
-  deleteRecipe(id: number){
-    const filtered = this.meals.filter(meal => meal.id !== id)
-    this.meals = filtered
+  deleteMeal(id: number){
+    const filtered = this.plannedMeals.filter(meal => meal.id !== id)
+    this.plannedMeals = filtered
   }
 }
