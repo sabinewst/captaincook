@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlannedService } from 'src/app/shared/services/planned.service';
 
 @Component({
   selector: 'app-planner',
@@ -7,20 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PlannerComponent implements OnInit {
+  meals: {
+    name: string;
+    imageUrl: string;
+    portionSize: string;
+    id: number;
+    ingredients: { name: string; amount: number; unit: string }[];
+  }[] = [];
 
-  constructor() { }
+  constructor(private plannedService: PlannedService) {}
 
   ngOnInit(): void {
+    this.meals = this.plannedService.meals
   }
 
-  meals = [
-    { id: 1, name: 'Okonomiyaki', imageUrl: '../../../assets/images/okonomiyaki.jpeg', portionSize: '2p' },
-    { id: 2, name: 'Ramen', imageUrl: '../../../assets/images/ramen.jpeg', portionSize: '2p' },
-    { id: 3, name: 'Bibimbap', imageUrl: '../../../assets/images/bibimbap.jpeg', portionSize: '2p' }
-  ]
-
   addRecipe(){
-    this.meals.push({ id: this.meals.length + 1, name: 'New', imageUrl: '../../../assets/images/placeholder.png', portionSize: '?'})
+    this.meals.push({
+      id: this.meals.length + 1,
+      name: 'New',
+      imageUrl: '../../../assets/images/placeholder.png',
+      portionSize: '?',
+      ingredients: []
+    })
   }
 
   deleteRecipe(id: number){

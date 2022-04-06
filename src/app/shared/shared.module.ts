@@ -4,13 +4,15 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { AsideComponent } from './components/aside/aside.component';
 
 
 
 @NgModule({
   declarations: [
     NavigationComponent,
-    DropdownComponent
+    DropdownComponent,
+    AsideComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { AppRoutingModule } from '../app-routing.module';
     AppRoutingModule
   ],
   exports: [
-    NavigationComponent
+    NavigationComponent,
+    AsideComponent
   ]
 })
 export class SharedModule { }

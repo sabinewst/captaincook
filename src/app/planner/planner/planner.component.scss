@@ -4,4 +4,13 @@
   border-radius: 4px;
   margin: 0 0 0 16px;
   padding: 8px;
+
+  &:hover {
+    background-color: #c5dfa6;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
 }
