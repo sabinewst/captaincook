@@ -19,7 +19,8 @@ export class PlannerComponent implements OnInit {
   constructor(private plannedService: PlannedService) {}
 
   ngOnInit(): void {
-    this.plannedMeals = this.plannedService.meals
+    this.plannedMeals = this.plannedService.meals;
+    this.plannedService.plannedMealsChange.subscribe((change) => (this.plannedMeals = change));
   }
 
   addMeal(){
@@ -33,7 +34,6 @@ export class PlannerComponent implements OnInit {
   }
 
   deleteMeal(id: number){
-    const filtered = this.plannedMeals.filter(meal => meal.id !== id)
-    this.plannedMeals = filtered
+    this.plannedService.deleteMeal(id)
   }
 }

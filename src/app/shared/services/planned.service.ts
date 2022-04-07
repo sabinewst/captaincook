@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -42,4 +43,19 @@ export class PlannedService {
       ]
     },
   ];
+
+  plannedMealsChange = new Subject<
+  {
+    name: string;
+    imageUrl: string;
+    portionSize: string;
+    id: number;
+    ingredients: { name: string; amount: number; unit: string }[];
+  }[]
+>();
+
+  deleteMeal(id: number) {
+    this.meals = this.meals.filter(meal => meal.id !== id);
+    this.plannedMealsChange.next(this.meals);
+  }
 }
